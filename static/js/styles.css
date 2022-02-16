@@ -1,0 +1,68 @@
+
+/*
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700&display=swap");
+*/
+
+title {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+  }
+
+
+  body {
+    font-family: "Times New Roman", Times, serif; 
+    text-align: center;
+    font-size: 36px;
+    line-height: 150%;
+  }
+
+/* Header */
+  header {
+    background: #006b9c;
+    width: 100%;
+    color: #fff;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .page-header nav {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+  
+  .page-header .logo {
+    display: block;
+    margin: 0 15px;
+  }
+
+
+/*Page content & search */
+.page-content {
+    position: relative;
+    left: var(--page-header-width);
+    width: calc(100% - var(--page-header-width));
+    min-height: 100vh;
+    padding: 30px;
+  }
+
+/* FOOTER
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+footer {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+  
+  
+

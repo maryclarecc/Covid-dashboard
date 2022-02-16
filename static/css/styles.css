@@ -44,6 +44,19 @@ title {
     margin: 0 15px;
   }
 
+  #map {
+    height: 500px;
+    min-width: 310px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.loading {
+    margin-top: 10em;
+    text-align: center;
+    color: gray;
+}
+
 
 /*Page content & search */
 .page-content {

@@ -19,7 +19,10 @@
     crossorigin=""></script>
 
     <!-- Our CSS -->
-    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+
+    <!--Bootstrap Grid-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <script src="https://code.highcharts.com/maps/highmaps.js"></script>
     <script src="https://code.highcharts.com/maps/modules/data.js"></script>
@@ -29,28 +32,60 @@
 
     <script src='https://cdn.plot.ly/plotly-2.9.0.min.js'></script>
 
-    
-
-
-
-
-
 </head>
+
 <body>
-    <h1>COVID Vaccination by Types</h1>
-    <!-- <select id="selDataset">
-        <option value="us">United States</option>
-        <option value="uk">United Kingdom</option>
-        <option value="canada">Canada</option>
-    </select> -->
+  
+<div>
+<p id = "title">SARS COV2 Vaccination Tracker - National and States </p>
+<br>
 
+<div class="row">
+  <div class="col-md-6" id = "TopLeft">
+    <p id="VaccSummary"> Number of Vaccine Administered </p>
+    <p id="Date"> Information as of February 10th, 2022 </p>
+    <br>
+    <p id="TotalVacc"> All Manufacturer: X,XXX,XXX</p>
+    <p id="PfizerVacc">Pfizer: X,XXX,XXX</p>
+    <p id="ModernaVacc">Moderna: X,XXX,XXX</p>
+    <p id="JanssenVacc">Janssen: X,XXX,XXX</p>
     <div id="map"></div>
+  </div>
 
-    <div id="line"><!-- Plotly chart will be drawn inside this DIV --></div>
+  <div class="col-md-6">
+    <label for="Vaccine">Choose The Vaccine types:</label>
+    <select id="Vaccine Type" id="Vaccine">
+    <option value="All Type">All</option>
+    <option value="Pfizer">Pfizer</option>
+    <option value="Moderna">Moderna</option>
+    <option value="Janssen">Janssen</option>
+    </select>
+  </div>
+</div>
+</div>
 
+<br>
+
+<div class="row">
+  <div class="col-md-6">
+    <p>Covid Vaccination per 100,000 people by states by December 31, 2021</p>
+    <div id="map"></div>
+  </div>
+  <div class="col-md-6">
+    <p>Number of vaccines Administered by types by states</p>
     <div id="stacked_bar"></div>
+  </div>
+</div>
+</div>
 
-    <script src="static/js/plots.js"></script>
+<div class="row">
+  <div class="col-md-12">
+    <p>Number of vaccines Administered daily over time</p>
+    <div id="line"></div>
+  </div>
+</div>    
+
+    
     
 
 </body>

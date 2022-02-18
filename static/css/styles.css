@@ -11,12 +11,7 @@ title {
   }
 
 
-  body {
-    font-family: "Times New Roman", Times, serif; 
-    text-align: center;
-    font-size: 36px;
-    line-height: 150%;
-  }
+
 
 /* Header */
   header {
@@ -76,6 +71,65 @@ footer {
     justify-content: flex-end;
     margin-top: 10px;
   }
-  
-  
 
+
+#map {
+    height: 300px;
+    width: 450px;
+}
+
+#stacked_bar {
+    height: 300px;
+    width: 450px;
+}
+
+#VaccSummary {
+  font-size: 24px;
+  font-weight: bold;
+}
+#Date {
+  font-size: 12px;
+}
+#TotalVacc {
+  font-size: 18px;
+  font-weight:bold
+}
+#PfizerVacc {
+  font-size: 16px;
+}
+#ModernaVacc {
+  font-size: 16px;
+}
+#JanssenVacc {
+  font-size: 16px;
+}
+p {
+  padding : 0;
+  margin : 0;
+  line-height : 5px;
+  font: helvetica;
+}
+
+  
+head {
+  Padding: 25px;
+  background-color: #80c3e2; 
+}
+
+body {
+  Padding: 25px;
+  background-color: #80c3e2;
+}
+
+#title {
+  font-family: "-apple-system, BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", 'Inter', "Helvetica Neue", sans-serif;; 
+  text-align: center;
+  font-size: 36px;
+  line-height: 100%;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+#Wrapper {
+  background-color: #80c3e2;
+}

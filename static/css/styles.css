@@ -1,83 +1,4 @@
 
-/*
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700&display=swap");
-*/
-
-title {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: content-box;
-  }
-
-
-
-
-/* Header */
-  header {
-    background: #006b9c;
-    width: 100%;
-    color: #fff;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: auto;
-    margin: 0;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
-  .page-header nav {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-  }
-  
-  .page-header .logo {
-    display: block;
-    margin: 0 15px;
-  }
-
-  #map {
-    height: 500px;
-    min-width: 310px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.loading {
-    margin-top: 10em;
-    text-align: center;
-    color: gray;
-}
-
-
-/*Page content & search */
-.page-content {
-    position: relative;
-    left: var(--page-header-width);
-    width: calc(100% - var(--page-header-width));
-    min-height: 100vh;
-    padding: 30px;
-  }
-
-/* FOOTER
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-footer {
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-top: 10px;
-  }
-
-
-#map {
-    height: 300px;
-    width: 450px;
-}
-
 #stacked_bar {
     height: 300px;
     width: 450px;
@@ -107,18 +28,7 @@ p {
   padding : 0;
   margin : 0;
   line-height : 5px;
-  font: helvetica;
-}
-
-  
-head {
-  Padding: 25px;
-  background-color: #80c3e2; 
-}
-
-body {
-  Padding: 25px;
-  background-color: #80c3e2;
+  font: "optima";
 }
 
 #title {
@@ -132,4 +42,12 @@ body {
 
 #Wrapper {
   background-color: #80c3e2;
+}
+
+#chart_title {
+  text-align: center;
+  font-size: 16px;
+  line-height: 100%;
+  padding-bottom: 10px;
+  font-weight: bold;
 }

@@ -1,5 +1,10 @@
 # Covid-dashboard
 
+
+**https://maryclarecc-covid-dashboard.herokuapp.com/**
+
+
+
 Flask, HTML, CSS, JavaScript, Database (sqlite)
 Dashboard of three visualizations - healthcare
 JavaScript Library: HighChart with multiple series of different types of vaccine: https://www.highcharts.com/demo/stock/compare/brand-light

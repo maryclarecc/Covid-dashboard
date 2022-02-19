@@ -1,7 +1,7 @@
 // // Map
 
 const urlmap = 'https://raw.githubusercontent.com/maryclarecc/Covid-dashboard/main/Resources/data_map.json'
-Highcharts.getJSON(urlmap, function (data) {
+Highcharts.getJSON(urlmap, function (chartdata) {
 
     // Make codes uppercase to match the map data
     // data.forEach(function (p) {
@@ -11,7 +11,7 @@ Highcharts.getJSON(urlmap, function (data) {
     // Instantiate the map
 
    // console.log(data)
-
+    console.log(chartdata)
     Highcharts.mapChart('map', {
 
         chart: {
@@ -94,19 +94,26 @@ Highcharts.getJSON(urlmap, function (data) {
 const urlline = "https://raw.githubusercontent.com/maryclarecc/Covid-dashboard/main/Resources/data_line.json"
 d3.json(urlline).then(function(data) {
 
-  linedate = data.Date
-  admindaily = data.Administered_Daily
-  console.log(data)
+  linedate = Object.values(data.Date)
+  admindaily = Object.values(data.Administered_Daily)
+  
+  linedate2 = linedate.map(i => Date.parse(i))
+  
+  // let linedate = data.map(i => i.Date)
+  console.log(linedate2)
+  console.log(admindaily)
+
+  // console.log(data)
   var trace1 = {
     type: "scatter",
     mode: "lines",
     name: 'Daily Vaccines in US',
-    x: linedate,
+    x: linedate2,
     y: admindaily,
     line: {color: '#17BECF'}
   }
 
-  var data = [trace1];
+  var data2 = [trace1];
 
   var layout = {
     title: 'Daily Vaccines in the US',
@@ -138,44 +145,107 @@ d3.json(urlline).then(function(data) {
     }
   };
 
-  Plotly.newPlot('line', data, layout);
-
-
+  Plotly.newPlot('line', data2, layout);
+// console.log(data.Date)
+// console.log(Object.values(data.Date))
 })
 
 
 const urlbar = "https://raw.githubusercontent.com/maryclarecc/Covid-dashboard/main/Resources/data_stacked_bar.json"
-function makeplot() {
-  d3.json(urlbar).then(function(data){ 
-    processData(data) 
-  });
-};
+// function makeplot() {
+//   d3.json(urlbar).then(function(data){ 
+//     processData(data) 
+//   });
+// };
 
-function processData(allRows) {
+// function processData(allRows) {
 
-  var x = [], y1 = [], y2 = [], y3 = [], yall = [];
+//   var x = [], y1 = [], y2 = [], y3 = [], yall = [];
 
-  for (var i=0; i<allRows.length; i++) {
-    row = allRows[i];
-    x.push( row['State Code'] );
-    yall.push( row['Administered_Daily'] );
-    y1.push( row['Administered_Pfizer_Daily']);
-    y2.push( row['Administered_Moderna_Daily']);
-    y3.push( row['Administered_Janssen_Daily']);
-  }
-  makePlotly( x, y1, y2, y3);
-}
+//   for (var i=0; i<allRows.length; i++) {
+//     row = allRows[i];
+//     x.push( row['State Code'] );
+//     yall.push( row['Administered_Daily'] );
+//     y1.push( row['Administered_Pfizer_Daily']);
+//     y2.push( row['Administered_Moderna_Daily']);
+//     y3.push( row['Administered_Janssen_Daily']);
+//   }
+//   makePlotly( x, y1, y2, y3);
+// }
 
-function makePlotly( x, y1, y2, y3){
-  var plotDiv = document.getElementById("plot");
+// function makePlotly( x, y1, y2, y3){
+//   var plotDiv = document.getElementById("plot");
  
-  // var trace1 = {
-  //   x: x,
-  //   y: yall,
-  //   name: 'All Vaccines',
-  //   type: 'bar'
-  // };
+//   // var trace1 = {
+//   //   x: x,
+//   //   y: yall,
+//   //   name: 'All Vaccines',
+//   //   type: 'bar'
+//   // };
       
+//   var trace2 = {
+//     x: x,
+//     y: y1,
+//     name: 'Pfizer',
+//     type: 'bar'
+//   };
+
+//   var trace3 = {
+//     x: x,
+//     y: y2,
+//     name: 'Moderna',
+//     type: 'bar'
+//   };
+
+//   var trace4 = {
+//     x: x,
+//     y: y3,
+//     name: 'Janssen',
+//     type: 'bar'
+//   };
+  
+//       var data = [trace2, trace3, trace4];
+      
+//       var layout = {barmode: 'stack'};
+      
+//       Plotly.newPlot('stacked_bar', data, layout);
+// };
+
+// makeplot();
+
+
+// d3.json(urlmap).then(function(data) {
+//   console.log(Object.keys(data));
+// })
+
+// d3.json(urlline).then(function(data) {
+//   console.log(Object.keys(data));
+// })
+
+// d3.json(urlbar).then(function(data) {
+//   console.log(Object.keys(data));
+// })
+
+
+// console.log(data)
+
+
+// d3.csv("../Resources/Covid_Vaccine_data_state_formatted.csv", function(data) {
+//   for (var i = 0; i < data.length; i++) {
+//       console.log(data[i].Date);
+//       console.log(data[i].Administered_Daily);
+//       console.log(data)
+//   }
+// });
+
+
+d3.json(urlbar).then(function(databar) {
+
+  x = Object.values(databar['State Code'])
+  y1= Object.values(databar.Administered_Pfizer_Daily)
+  y2= Object.values(databar.Administered_Moderna_Daily)
+  y3= Object.values(databar.Administered_Janssen_Daily)
+
   var trace2 = {
     x: x,
     y: y1,
@@ -196,25 +266,11 @@ function makePlotly( x, y1, y2, y3){
     name: 'Janssen',
     type: 'bar'
   };
+
+  var data = [trace2, trace3, trace4];
   
-      var data = [trace2, trace3, trace4];
-      
-      var layout = {barmode: 'stack'};
-      
-      Plotly.newPlot('stacked_bar', data, layout);
-};
+  var layout = {barmode: 'stack'};
+  
 
-makeplot();
-
-
-d3.json(urlmap).then(function(data) {
-  console.log(Object.keys(data));
-})
-
-d3.json(urlline).then(function(data) {
-  console.log(Object.keys(data));
-})
-
-d3.json(urlbar).then(function(data) {
-  console.log(Object.keys(data));
-})
+  Plotly.newPlot('stacked_bar', data, layout)
+});

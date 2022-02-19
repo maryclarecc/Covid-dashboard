@@ -1,17 +1,14 @@
 // // Map
 
-const urlmap = 'https://raw.githubusercontent.com/maryclarecc/Covid-dashboard/main/Resources/data_map.json'
-Highcharts.getJSON(urlmap, function (chartdata) {
+const urlmap = 'https://raw.githubusercontent.com/maryclarecc/Covid-dashboard/main/Resources/data_map2.json'
+Highcharts.getJSON(urlmap, function (mapdata) {
 
     // Make codes uppercase to match the map data
-    // data.forEach(function (p) {
-    //     p.code = p.code.toUpperCase();
+    // mapdata.forEach(function (p) {
+    //     p.code = p['code'].toUpperCase();
     // });
 
-    // Instantiate the map
-
-   // console.log(data)
-    console.log(chartdata)
+    // console.log(mapdata)
     Highcharts.mapChart('map', {
 
         chart: {
@@ -20,7 +17,7 @@ Highcharts.getJSON(urlmap, function (chartdata) {
         },
 
         title: {
-            text: 'COVID Vaccine Rates by State on 12/31/2021'
+            text: 'Daily COVID Vaccine Rates by State on 12/31/2021'
         },
 
         exporting: {
@@ -57,40 +54,23 @@ Highcharts.getJSON(urlmap, function (chartdata) {
             animation: {
                 duration: 1000
             },
-            data: data,
-            joinBy: ['code', 'State Code'],
+            data: mapdata,
+            joinBy: ['postal-code', 'code'],
             dataLabels: {
                 enabled: true,
                 color: '#FFFFFF',
                 format: '{point.code}'
             },
-            name: 'Number of Vaccines',
+            name: 'Number of Vaccines Daily',
             tooltip: {
-                pointFormat: '{point.code}: {point.value}/km²'
+                pointFormat: '{point.value}'
             }
         }]
     });
 });
 
+
 // Time Series
-// d3.csv("https://raw.githubusercontent.com/maryclarecc/Covid-dashboard/199fd99295fa7fc95cd677017b63c3e9816294b4/Resources/Covid_Vaccine_data_US_formatted.csv", function(err, rows){
-
-  // function unpack(rows, key) {
-  // return rows.map(function(row) { return row[key]; });
-  // }
-
-
-// d3.csv("https://raw.githubusercontent.com/maryclarecc/Covid-dashboard/199fd99295fa7fc95cd677017b63c3e9816294b4/Resources/Covid_Vaccine_data_US_formatted.csv")
-
-
-// const linedata = "../Resources/line.js"
-// const url = "https://raw.githubusercontent.com/maryclarecc/Covid-dashboard/199fd99295fa7fc95cd677017b63c3e9816294b4/Resources/Covid_Vaccine_data_US_formatted.csv"
-// d3.csv(url).then(function(data){ 
-//   console.log(data)
-//   function unpack(data, key) {
-//       return data.map(function(data) { return data[key]; });
-//     }
-
 const urlline = "https://raw.githubusercontent.com/maryclarecc/Covid-dashboard/main/Resources/data_line.json"
 d3.json(urlline).then(function(data) {
 
@@ -100,8 +80,8 @@ d3.json(urlline).then(function(data) {
   linedate2 = linedate.map(i => Date.parse(i))
   
   // let linedate = data.map(i => i.Date)
-  console.log(linedate2)
-  console.log(admindaily)
+  // console.log(linedate2)
+  // console.log(admindaily)
 
   // console.log(data)
   var trace1 = {
@@ -151,93 +131,8 @@ d3.json(urlline).then(function(data) {
 })
 
 
+// Bar Chart
 const urlbar = "https://raw.githubusercontent.com/maryclarecc/Covid-dashboard/main/Resources/data_stacked_bar.json"
-// function makeplot() {
-//   d3.json(urlbar).then(function(data){ 
-//     processData(data) 
-//   });
-// };
-
-// function processData(allRows) {
-
-//   var x = [], y1 = [], y2 = [], y3 = [], yall = [];
-
-//   for (var i=0; i<allRows.length; i++) {
-//     row = allRows[i];
-//     x.push( row['State Code'] );
-//     yall.push( row['Administered_Daily'] );
-//     y1.push( row['Administered_Pfizer_Daily']);
-//     y2.push( row['Administered_Moderna_Daily']);
-//     y3.push( row['Administered_Janssen_Daily']);
-//   }
-//   makePlotly( x, y1, y2, y3);
-// }
-
-// function makePlotly( x, y1, y2, y3){
-//   var plotDiv = document.getElementById("plot");
- 
-//   // var trace1 = {
-//   //   x: x,
-//   //   y: yall,
-//   //   name: 'All Vaccines',
-//   //   type: 'bar'
-//   // };
-      
-//   var trace2 = {
-//     x: x,
-//     y: y1,
-//     name: 'Pfizer',
-//     type: 'bar'
-//   };
-
-//   var trace3 = {
-//     x: x,
-//     y: y2,
-//     name: 'Moderna',
-//     type: 'bar'
-//   };
-
-//   var trace4 = {
-//     x: x,
-//     y: y3,
-//     name: 'Janssen',
-//     type: 'bar'
-//   };
-  
-//       var data = [trace2, trace3, trace4];
-      
-//       var layout = {barmode: 'stack'};
-      
-//       Plotly.newPlot('stacked_bar', data, layout);
-// };
-
-// makeplot();
-
-
-// d3.json(urlmap).then(function(data) {
-//   console.log(Object.keys(data));
-// })
-
-// d3.json(urlline).then(function(data) {
-//   console.log(Object.keys(data));
-// })
-
-// d3.json(urlbar).then(function(data) {
-//   console.log(Object.keys(data));
-// })
-
-
-// console.log(data)
-
-
-// d3.csv("../Resources/Covid_Vaccine_data_state_formatted.csv", function(data) {
-//   for (var i = 0; i < data.length; i++) {
-//       console.log(data[i].Date);
-//       console.log(data[i].Administered_Daily);
-//       console.log(data)
-//   }
-// });
-
 
 d3.json(urlbar).then(function(databar) {
 

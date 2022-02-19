@@ -13,7 +13,7 @@ Highcharts.getJSON(urlmap, function (mapdata) {
 
         chart: {
             map: 'countries/us/us-all',
-            borderWidth: 1
+            borderWidth: 0
         },
 
         title: {
